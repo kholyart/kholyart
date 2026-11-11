@@ -1,32 +1,26 @@
-# KHOLY ART — website update (11 Nov 2026)
+# KHOLY ART website
 
-Static site for GitHub Pages. No build step.
+Static site for GitHub Pages (kholyart.com). No build step.
 
-## What is in this archive
-- `index.html` — the whole site (markup, styles and page script inline)
-- `gsap.min.js`, `ScrollTrigger.min.js` — GSAP 3.12.2, shipped locally
-- `lenis.min.js` — Lenis 1.0.29 smooth scroll, shipped locally
-- `img/` — 44 JPEG images, every one referenced by `index.html`
+## Files
+- `index.html`: the page (Arabic, RTL, Modern Standard Arabic copy)
+- `css/site.css`: site styles, built on Arabesque tokens (`--al-*`)
+- `js/site.js`: carousel, works filter, reveals, project view (`#project/<id>`), WhatsApp message
+- `vendor/arabesque/`: Arabesque v0.9.0, the Arabesque Labs design system (MIT; see its `LICENSE` and `NOTICE.md`): the CSS bundle, self-hosted fonts (OFL) and the pattern tile
+- `vendor/lenis.min.js`: Lenis 1.0.29 smooth scroll (off under reduced motion)
+- `img/`: photos, `tesserae.svg` / `tesserae-dark.svg` (the glass-tile fill for headings, dark and light themes), `pattern-quiet-light.svg` (Arabesque's quiet pattern in dark ink, for the light theme) and `mark-light.png` (the logo star, light on transparent)
+- `logo.png`, `CNAME`, `.htaccess`: keep
 
-## How to deploy
-1. Copy everything in this archive into the root of the Pages branch, replacing the current `index.html`.
-2. KEEP these files that are already in the repo — they are not in this archive:
-   - `logo.png` (the hero loads `logo.png` from the site root; the original 1638x1638 file must stay)
-   - `CNAME` (custom domain kholyart.com)
-   - favicon files, `robots.txt`, `sitemap.xml`, analytics or verification files, if present
-3. Old gallery images (`gallery-*.jpg` and similar) are no longer referenced and can be removed, but nothing breaks if they stay.
-4. Commit and push. No Jekyll processing is needed.
+## Design rules in use
+- Dark theme only (`data-theme="dark"` on `<html>`).
+- Colours, type sizes, spacing and durations come from Arabesque tokens; layout uses logical properties only.
+- Section headings use the mosaic lettering (Amiri filled with glass tiles). The tiles are still.
+- The carousel turns only when the page is scrolled, the carousel is dragged, or with the arrow keys. To bring back an idle spin, set `IDLE` in `js/site.js` (and add a pause control, per WCAG 2.2.2).
+- Digits are Western (123) throughout, as Arabesque recommends.
 
-## External requests the page makes
-- Google Fonts: Amiri, IBM Plex Sans Arabic, IBM Plex Mono, Cormorant Garamond
-- WhatsApp links to wa.me/201096622627
-Nothing else is loaded from a third party.
+## External requests
+- WhatsApp links to wa.me/201096622627. Nothing else is loaded from a third party.
 
-## Tested
-- Headless Chrome at 1440x900 and 390x844: no script errors, no horizontal overflow.
-- Not tested: real phones, Safari, and rendering with the web fonts loaded (the test machine could not reach Google Fonts).
-
-## Known open items (content, not code)
-- Some photos are screen captures of Facebook posts and are lower resolution than the rest; originals will replace them later under the same file names.
-- The "kitchens and floors" service row has no hover image yet (`data-img=""`), which the script handles.
-- Page direction is RTL (`dir="rtl"`, Arabic). The brand name stays in Latin as KHOLY ART.
+## Content notes
+- The first testimonial is quoted verbatim, so it stays in the customer's own (Egyptian) words.
+- The "kitchens and floors" service has no hover image yet (`data-img=""`).
