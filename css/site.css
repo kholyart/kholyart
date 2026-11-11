@@ -131,20 +131,20 @@ b { color: var(--al-color-text); font-weight: var(--al-weight-regular); }
 
 /* ---- hero ----------------------------------------------------------------------------------- */
 
-/* Logo and lede on one side, the carousel on the other, in one row. */
+/* Logo and lede stacked and centred, the carousel below them at full width. */
 .hero {
-  display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.6fr);
-  align-items: center; gap: var(--al-space-8);
-  min-block-size: 100svh; box-sizing: border-box;
-  padding-block: calc(var(--site-header-h) + var(--al-space-5)) var(--al-space-8);
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(var(--al-space-4), 3vh, var(--al-space-8));
+  box-sizing: border-box;
+  padding-block: calc(var(--site-header-h) + clamp(var(--al-space-5), 5vh, var(--al-space-12))) var(--al-space-8);
 }
-.hero__intro { text-align: center; }
+.hero__intro { text-align: center; inline-size: 100%; }
 .hero-logo {
   position: relative;
-  inline-size: min(100%, 380px);
+  inline-size: clamp(200px, min(28vw, 30vh), 360px);
   aspect-ratio: 1 / 0.735;
   margin-inline: auto;
-  margin-block-end: var(--al-space-6);
+  margin-block-end: var(--al-space-5);
   overflow: hidden;
   isolation: isolate;
   mix-blend-mode: var(--site-logo-blend);
@@ -163,13 +163,13 @@ b { color: var(--al-color-text); font-weight: var(--al-weight-regular); }
 @keyframes logo-in { from { opacity: 0; filter: blur(16px); transform: scale(1.03); } to { opacity: 1; filter: none; transform: none; } }
 
 .hero__lede {
-  max-inline-size: 34rem; margin-inline: auto;
+  max-inline-size: 40rem; margin-inline: auto;
   font-size: clamp(1.2rem, 0.95rem + 0.75vw, 1.6rem); color: var(--al-color-text); line-height: 1.75;
   text-wrap: balance;
 }
 .hero__actions {
   display: flex; flex-wrap: wrap; justify-content: center; gap: var(--al-space-3);
-  margin-block-start: var(--al-space-6);
+  margin-block-start: var(--al-space-5);
 }
 
 /* The turning cylinder of works. It moves only when the page is scrolled or
@@ -177,7 +177,8 @@ b { color: var(--al-color-text); font-weight: var(--al-weight-regular); }
 .carousel {
   position: relative;
   inline-size: 100%;
-  block-size: clamp(380px, min(48vw, 100svh - 8rem), 720px);
+  block-size: clamp(360px, min(42vw, 58svh), 640px);
+  margin-block-start: calc(var(--al-space-4) * -1); /* the cards sit inset in the box; close the gap under the buttons */
   perspective: 1600px;
   perspective-origin: 50% 40%;
   cursor: grab;
@@ -489,8 +490,8 @@ b { color: var(--al-color-text); font-weight: var(--al-weight-regular); }
 }
 
 @media (max-width: 52rem) {
-  .hero { grid-template-columns: 1fr; min-block-size: 0; gap: var(--al-space-6); }
-  .hero-logo { inline-size: min(64vw, 320px); }
+  .hero { gap: var(--al-space-6); }
+  .hero-logo { inline-size: min(64vw, 300px); }
   .carousel { block-size: clamp(340px, 100vw, 480px); }
   .works__head, .workshop__head { flex-direction: column; gap: var(--al-space-3); }
   .works__filter { margin-block-end: var(--al-space-12); }
