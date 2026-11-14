@@ -1,26 +1,13 @@
 # KHOLY ART website
 
-Static site for GitHub Pages (kholyart.com). No build step.
+Static site for GitHub Pages (kholyart.com). No build step here; the files are generated.
 
-## Files
-- `index.html`: the page (Arabic, RTL, Modern Standard Arabic copy)
-- `css/site.css`: site styles, built on Arabesque tokens (`--al-*`)
-- `js/site.js`: carousel, works filter, reveals, project view (`#project/<id>`), WhatsApp message
-- `vendor/arabesque/`: Arabesque v0.9.0, the Arabesque Labs design system (MIT; see its `LICENSE` and `NOTICE.md`): the CSS bundle, self-hosted fonts (OFL) and the pattern tile
-- `vendor/lenis.min.js`: Lenis 1.0.29 smooth scroll (off under reduced motion)
-- `img/`: photos, `tesserae.svg` / `tesserae-dark.svg` (the glass-tile fill for headings, dark and light themes), `pattern-quiet-light.svg` (Arabesque's quiet pattern in dark ink, for the light theme) and `mark-light.png` (the logo star, light on transparent)
-- `logo.png`, `CNAME`, `.htaccess`: keep
+- `index.html`, `css/site.css`, `js/site.js`: the site (home and every work page, routed by `#work-<id>`)
+- `js/data.js`: the works; `js/i18n.js`: English layer (Arabic is the source; first visit follows the device language, the header button switches, `?lang=en|ar` forces)
+- `js/mosaic3d.js` + `js/three.module.min.js`: the tile transition in the opening picture
+- `img/`, `video/`, `fonts/`: media and self-hosted fonts
+- `CNAME`, `.htaccess`, `logo.png`, `favicon.png`: keep
 
-## Design rules in use
-- Dark theme only (`data-theme="dark"` on `<html>`).
-- Colours, type sizes, spacing and durations come from Arabesque tokens; layout uses logical properties only.
-- Section headings use the mosaic lettering (Amiri filled with glass tiles). The tiles are still.
-- The carousel turns only when the page is scrolled, the carousel is dragged, or with the arrow keys. To bring back an idle spin, set `IDLE` in `js/site.js` (and add a pause control, per WCAG 2.2.2).
-- Digits are Western (123) throughout, as Arabesque recommends.
+External requests: WhatsApp links (wa.me/201096622627) and the photo upload (Google Apps Script, to the owner's Drive). Nothing else.
 
-## External requests
-- WhatsApp links to wa.me/201096622627. Nothing else is loaded from a third party.
-
-## Content notes
-- The first testimonial is quoted verbatim, so it stays in the customer's own (Egyptian) words.
-- The "kitchens and floors" service has no hover image yet (`data-img=""`).
+The previous site is kept on the branch `backup-before-2026-11-14`.
