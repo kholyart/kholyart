@@ -386,3 +386,7 @@ sup{font-size:.6em;line-height:0}
 [dir="ltr"] .film__bar i{transform-origin:left}
 [dir="ltr"] .mo .rail:not([data-auto]) > .rv{transform:translateX(6rem)}
 [dir="ltr"] body{line-height:1.65}
+
+.top__brand{display:inline-flex;align-items:center;gap:.5rem}
+.top__brand img{inline-size:2rem;block-size:2rem;flex:none}
+@media (max-width:40rem){.top__brand{gap:.35rem;font-size:.95rem;letter-spacing:.04em}.top__brand img{inline-size:1.5rem;block-size:1.5rem}.top__nav .btn{padding-inline:.8rem}.lang{padding-inline:.6rem}.top{gap:.5rem}}
